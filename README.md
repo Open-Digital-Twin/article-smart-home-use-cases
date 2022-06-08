@@ -12,4 +12,5 @@ A video demo of the first use case, shown in the presentation PDF, is [here](htt
 ## 🧙 Authors 
 
 Student: Laura Corssac
+
 Supervisor: Juliano Wickboldt
