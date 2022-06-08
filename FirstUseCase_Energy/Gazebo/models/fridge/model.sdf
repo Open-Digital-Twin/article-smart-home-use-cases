@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="fridge">
+    <static>true</static>
+    <link name="fridgelink">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://fridge/meshes/fridge.obj</uri>
+            <scale> 0.012 0.012 0.012 </scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://fridge/meshes/fridge.obj</uri>
+            <scale> 0.012 0.012 0.012 </scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

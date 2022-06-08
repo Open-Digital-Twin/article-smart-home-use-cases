@@ -1,0 +1,66 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 16.11.2011 15:07:32
+
+newmtl refrigerator_plastic
+	Ns 53.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.3294 0.3294 0.3294
+	Kd 0.3294 0.3294 0.3294
+	Ks 0.5220 0.5220 0.5220
+	Ke 0.0000 0.0000 0.0000
+
+newmtl refrigerator_steel
+	Ns 75.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4500 0.4500 0.4500
+	Ke 0.0000 0.0000 0.0000
+	map_Ka FridgeDiffuseMap.jpg
+	map_Kd FridgeDiffuseMap.jpg
+
+newmtl refrigerator_metall_light
+	Ns 75.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5333 0.5333 0.5333
+	Kd 0.5333 0.5333 0.5333
+	Ks 0.5940 0.5940 0.5940
+	Ke 0.0000 0.0000 0.0000
+
+newmtl refrigerator_chrome
+	Ns 95.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.4000 0.4000 0.4000
+	Kd 0.4000 0.4000 0.4000
+	Ks 0.5220 0.5220 0.5220
+	Ke 0.0000 0.0000 0.0000
+
+newmtl refrigerator_display
+	Ns 56.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.3510 0.3510 0.3510
+	Ke 0.0000 0.0000 0.0000
+	map_Ka refrigerator_display.jpg
+	map_Kd refrigerator_display.jpg

@@ -1,0 +1,54 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 22.11.2011 16:00:47
+
+newmtl Diswasher_plastic_black
+	Ns 22.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.1569 0.1569 0.1569
+	Kd 0.1569 0.1569 0.1569
+	Ks 0.3510 0.3510 0.3510
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Diswasher_plastic
+	Ns 41.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.7569 0.7569 0.7569
+	Kd 0.7569 0.7569 0.7569
+	Ks 0.5220 0.5220 0.5220
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Diswasher_panel
+	Ns 1.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0090 0.0090 0.0090
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Diswasher_panel.jpg
+	map_Kd Diswasher_panel.jpg
+	map_bump -bm 0.2000 Diswasher_panel.jpg
+	bump -bm 0.2000 Diswasher_panel.jpg
+
+newmtl Diswasher_metall
+	Ns 41.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2235 0.2235 0.2235
+	Kd 0.2235 0.2235 0.2235
+	Ks 0.5220 0.5220 0.5220
+	Ke 0.0000 0.0000 0.0000

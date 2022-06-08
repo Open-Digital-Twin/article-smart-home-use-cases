@@ -1,0 +1,15 @@
+{
+    "name" : "mqtt-sink-heater-actions",
+    "config" : {
+    "connector.class" : "io.confluent.connect.mqtt.MqttSinkConnector",
+    "tasks.max" : "1",
+    "mqtt.server.uri" : "tcp://broker.emqx.io:1883",
+    "topics" : "heater-actions",
+    "confluent.topic.bootstrap.servers": "localhost:9092",
+    "value.converter":"org.apache.kafka.connect.storage.StringConverter",
+    "value.converter.schemas.enable": "false",
+    "confluent.topic.replication.factor": "1",
+    "confluent.license":"",
+    "mqtt.retained.enabled":"false"
+    }
+}
