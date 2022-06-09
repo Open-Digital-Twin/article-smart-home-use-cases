@@ -14,9 +14,7 @@ This is the software responsible for the 3D visualization. Tutuorial on [Gazebo 
 
 2. Install Confluent
 
-This is package includes all Apache Kafka components necessary to run application (and even some more).  
-
-Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/install.html)
+This is package includes all Apache Kafka components necessary to run application (and even some more).  Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/install.html)
 
 ## How to Run (Unix)
 
@@ -25,6 +23,7 @@ Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/
 1. Create a `build` folder under `plugins` and navigate to it
 
 `$ cd plugins && mkdir build`
+
 `$ cd plugins/build/`
 
 2. Compile the plugins 
@@ -32,17 +31,13 @@ Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/
 `$ cmake ../`
 `$ make`
 
-3. Set GAZEBO_PLUGIN_PATH environment variable to the current directory
+3. Set GAZEBO_PLUGIN_PATH environment variable to the current directory (`build`)
 
 `$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$(pwd)`
 
-4. Go back to `Energy` directory 
+4. Go back to `Energy` directory  and elect contents of folder `models` and move to `home/model_editor_models` 
 
-`$ cd .. && cd ..`
-
-5. Select contents of folder `models` and move to `home/model_editor_models` 
-
-6. Select contents of folder `building` and move to `home/building_editor_models` (both model_ and building_ editor_models were created by Gazebo installation)
+5. Select contents of folder `building` and move to `home/building_editor_models` (both model_ and building_ editor_models were created by Gazebo installation)
 
 6. Run the application
 
@@ -50,14 +45,11 @@ Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/
 
 ### 2nd terminal - Real time generation
 
-1. Go to the `RealTimeGen` folder
+1. Go to the `RealTimeGen` folder and download, in this directory, the data set (HomeC.csv) file containing the power readings from https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
 
-`$ cd RealTimeGen`
-
-2. Download, in this directory, the data set (HomeC.csv) file containing the power readings from https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
+2. Run the script
 
 `$ python3 csv_reader.py`
-
 
 ### 3rd terminal - Data Processing
 
@@ -77,11 +69,7 @@ Obs.: You may need to set the Java 8 it you have more than one version installed
 
 Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
-2. Go back to this repository's `connectors` folder under `Kafka` 
-
-`cd Kafka/connectors`
-
-3. Post the Kafka Connectors 
+2. Go back to this repository's `connectors` folder under `Kafka` and post the Kafka Connectors 
 
 `curl -s -X POST -H 'Content-Type: application/json' --data @connectorSink.json http://localhost:8083/connectors`
 
@@ -90,7 +78,5 @@ Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 `curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceUser.json http://localhost:8083/connectors`
 
 3. Go back to `Kafka` folder and run the processing script
-
-`cd ..`
 
 `python3 kafkaprocessing.py`
