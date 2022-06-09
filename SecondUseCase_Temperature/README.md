@@ -12,8 +12,7 @@ In this step, we simulated the heating of three different rooms in the software 
 [Enery 2D Website](https://energy.concord.org/energy2d/download.html)
 
 2. Designed the three rooms we wanted, saving as threeRooms.e2d. 
-3. We run the simualtion for the equivalent of 13 hours and stopped it
-In practice it takes some real-world minutes, as the simulation runs faster
+3. We run the simualtion for the equivalent of 13 hours and stopped it. In practice it takes some real-world minutes, as the simulation runs faster
 
 4. Exported the data (open graph -> view data -> Copy data) and, in a text editor, made a find and replace and transformed the data to a CSV. 
 Also, as this process doesn't copy the header indicating the columns' names, we manually added it.
