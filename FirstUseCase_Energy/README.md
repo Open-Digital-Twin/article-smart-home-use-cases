@@ -10,20 +10,21 @@ The data processing works with Kafka and the first and third components publish 
 
 1. Install Gazebo 
 
-This is the software responsible for the 3D visualization. Tutuorial on https://classic.gazebosim.org/tutorials?tut=install_ubuntu
+This is the software responsible for the 3D visualization. Tutuorial on [Gazebo Website](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)
 
 2. Install Confluent
 
 This is package includes all Apache Kafka components necessary to run application (and even some more).  
 
-Tutorial on https://docs.confluent.io/confluent-cli/current/install.html
+Tutorial on [Confluent Website](https://docs.confluent.io/confluent-cli/current/install.html)
 
 ## How to Run (Unix)
 
 ### 1st terminal - Gazebo visualization
 
-1. Go to `build` folder under `plugins`
+1. Create a `build` folder under `plugins` and navigate to it
 
+`$ cd plugins && mkdir build`
 `$ cd plugins/build/`
 
 2. Compile the plugins 
@@ -88,10 +89,8 @@ Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
 `curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceUser.json http://localhost:8083/connectors`
 
-3. Go back to `Kafka` folder 
+3. Go back to `Kafka` folder and run the processing script
 
 `cd ..`
-
-4. Run the script
 
 `python3 kafkaprocessing.py`
