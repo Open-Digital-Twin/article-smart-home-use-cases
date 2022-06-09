@@ -1,3 +1,0 @@
-/home/laura/Documents/tcc/Energy/Gazebo/plugins/build/CMakeFiles/rebuild_cache.dir
-/home/laura/Documents/tcc/Energy/Gazebo/plugins/build/CMakeFiles/edit_cache.dir
-/home/laura/Documents/tcc/Energy/Gazebo/plugins/build/CMakeFiles/color_change_plugin.dir

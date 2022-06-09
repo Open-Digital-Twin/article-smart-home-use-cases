@@ -1,3 +1,4 @@
 *HomeC.csv
 *.DS_Store
 *__pycache__
+FirstUseCase_Energy/Gazebo/plugins/build/*
