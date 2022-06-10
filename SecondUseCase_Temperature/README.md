@@ -76,34 +76,34 @@ Also, runs another script that receives these values and determines if the heate
 `python3 temperature_realtime_gen.py 1 smallroom`
 
 3. Wait until the second terminates and then manually terminate the first.
-At the end, you will have a smallroomJAN.csv in the RealTimeDataGen directory. THis is what we call a heater_routine file.
+At the end, you will have a smallroomJAN.csv in the `RealTimeDataGen/HeaterRoutineFiles` directory. This is what we call a heater_routine file.
 
 4. Predict which temperature the system reached at 18 o'clock at every day of January. To do so, go to SecondUseCase_Temperature/DataAnalysis and run:
 
 `python3 results_processing.py r ../RealTimeDataGen/smallroomJAN.csv`
 
+At the end you will have the `smallroomJANUpdated.csv` under `DataAnalysis/RealTimeUpdated`
+
 ## 3. Generate Files for the comparisson system
 
 For evaluating our system we compared with one that turns the heater on every day at a fixed time. Each of the four months that we evaluated has a fixed time, which was determined by our system's action-time average for the same month considering all rooms. To be more clear, the fixed time of the month of January is the average of the 93 daily action-time values presented in smallroomJAN.csv, bigroomJAN.csv and smallroomwindowJAN.csv. So, for executing the following steps, you must have executed all the 12 iterations of our system.
 
-1. Generate the heater routine file for all four months
+1. Generate the heater routine file for all four months. Go to `DataAnalysis` folder and run:
 
-`$ cd DataAnalysis && python3 constant_time_gen.py`
+`python3 constant_time_gen.py`
 
 At the end you will have four files under the `ConstantTime` folder.
 
 2. Predict which temperature the system reached at 18 o'clock for every room. To do so, run:
 
-`$ python3 results_processing.py c smallroom`
+`python3 results_processing.py c smallroom`
 
 After that, you will have a four new files under `ConstantTimeUpdated`, one representing the small room's heatin on the four months. Run again for the other rooms by changing the seond argument to bigroom and smallroomwindow. At the end you will have 12 files.
 
 
 ## 4. Generate the graphs
 
-For comparing the system, we chose two criterias: the time heater's daily operation time (from the moment it was turned on until 18 o'clock) and the final temperature the system reached at 18 o'clock. For generating a graphes that compare the monthly average per room we run:
-
-`$ cd DataAnalysis`
+For comparing the system, we chose two criterias: the time heater's daily operation time (from the moment it was turned on until 18 o'clock) and the final temperature the system reached at 18 o'clock. For generating a graphes that compare the monthly average per room we go to the `DataAnalysis` folder and:
 
 `$ python3 graph_mixer.py time`
 
