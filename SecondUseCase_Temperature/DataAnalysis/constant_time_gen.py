@@ -31,7 +31,7 @@ def get_temperature(df):
 def get_files_of_month(month_number):
     global months
     month = months[month_number - 1]
-    files = glob.glob(f'../RealTimeDataGen/*{month}.csv')
+    files = glob.glob(f'../RealTimeDataGen/HeaterRoutineFiles/*{month}.csv')
     return files
 
 def get_number_days_month(month_df):

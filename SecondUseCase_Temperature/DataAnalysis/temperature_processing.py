@@ -82,24 +82,26 @@ def send_heater_command(should_turn_on, trigger_message_json):
 def prepare_ksql(stream_name, topic_name):
 
     client.ksql(f"DROP stream if exists {stream_name + 'dummy'}")
-    client.ksql(f'DROP stream if exists {stream_name}')
+    client.ksql(f"DROP stream if exists {stream_name}")
 
     streamProperties = {"ksql.streams.auto.offset.reset": "earliest"}
 
-    ksql_string = f"CREATE STREAM {stream_name + 'stream'} (temperature double, measured_time double) WITH (KAFKA_TOPIC='{topic_name}', PARTITIONS=1, REPLICAS=1, VALUE_FORMAT='JSON');"
+    ksql_string = f"CREATE STREAM {stream_name} (temperature double, measured_time double) WITH (KAFKA_TOPIC='{topic_name}', PARTITIONS=1, REPLICAS=1, VALUE_FORMAT='JSON');"
     client.ksql(ksql_string, stream_properties=streamProperties)
     print("created stream")
 
     # this is to for further processing in results_processing.py
-    ksql_string = f"CREATE STREAM {stream_name + 'streamdummy'} AS SELECT 1 AS DUMMY, * FROM {stream_name};"
+    ksql_string = f"CREATE STREAM {stream_name + 'dummy'} AS SELECT 1 AS DUMMY, * FROM {stream_name};"
     client.ksql(ksql_string, stream_properties=streamProperties)
     print("created stream dummy")
 
 
 def main():
 
+    global target_temperature_did_change
+    global simulated_time_target_temperature
     topic_name = get_topic_name()
-    stream_name = topic_name
+    stream_name = topic_name + 'stream'
 
     prepare_ksql(stream_name, topic_name)
     

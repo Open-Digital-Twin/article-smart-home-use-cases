@@ -211,7 +211,7 @@ def main():
     
     stream_name = get_stream_name_input()
     months = ['JAN', 'FEV', 'MAR', 'APR']
-    filename = stream_name + months[int(month_number) - 1] + '.csv'
+    filename = 'HeaterRoutineFiles' stream_name + months[int(month_number) - 1] + '.csv'
 
     try:
         os.remove(filename)

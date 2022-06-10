@@ -74,7 +74,6 @@ def get_max_temp():
     queryid = get_query_id(next(query))
     print(queryid)
     for result in query:
-        print("oi")
         columns = get_columns_from_message(result)
         return columns[0]
     
@@ -91,7 +90,6 @@ def get_max_time():
     queryid = get_query_id(next(query))
     print(queryid)
     for result in query:
-        print("oi")
         columns = get_columns_from_message(result)
         return columns[0]
     
@@ -113,7 +111,6 @@ def get_closest_simulated_temperature(temperature):
     queryid = get_query_id(next(query))
     print(queryid)
     for result in query:
-        print("oi")
         columns = get_columns_from_message(result)
         time = columns[MEASURED_TIME_COL]
         return time
@@ -162,7 +159,6 @@ def parse_file_df(df, result_file_name):
         period_heater_on_until_target = (target_time - time_action_taken).total_seconds()
         
         simulated_target_time = closest_temp_time + period_heater_on_until_target
-        print("hello")
         if simulated_target_time < max_time:
             simulated_temp_on_target = get_closest_simulated_time(simulated_target_time)
         else:
