@@ -22,7 +22,7 @@ To transfer the data to Kafka Streams, one must:
 
 1. Start confluent 
 
-`ConfluentFolder user$ confluent local services start`
+`confluent local services start`
 
 Obs.: Do not forget to reset confluents environemtal variables in case they are not permanent
 
@@ -36,21 +36,21 @@ Obs.: You may need to set the Java 8 it you have more than one version installed
 
 Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
-2. Back to `Kafka/Connectors` folder, post the five connectors (four source and one sink) 
+2. Back to `SecondUseCase_Temperature/Kafka/Connectors` folder, post the five connectors (four source and one sink) 
 
-`$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSinkHeaterActions.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSinkHeaterActions.json http://localhost:8083/connectors`
 
-`$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceRealTimeTemperature.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceRealTimeTemperature.json http://localhost:8083/connectors`
 
-`$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationBR.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationBR.json http://localhost:8083/connectors`
 
-`$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationSR.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationSR.json http://localhost:8083/connectors`
 
-`$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationSRW.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceSimulationSRW.json http://localhost:8083/connectors`
 
-3. Run the [Python Script](Simulation/generate_temperature_streams.py) under `Simulation` folder:
+3. Run the [Python Script](Simulation/generate_temperature_streams.py) under `SecondUseCase_Temperature/Simulation` folder:
 
-`$ python3 generate_temperature_streams.py dataset.csv`
+`python3 generate_temperature_streams.py dataset.csv`
 
 This creates three topics on Kafka, one for each room, that represent their heating simulation. For checking:
 
@@ -67,24 +67,20 @@ Topics smallroom, bigroom and smallroomwindow should be there.
 This step runs a script that emulates temperature readings from a physical room. 
 Also, runs another script that receives these values and determines if the heater placed on the same room should be turned on. The following steps we executed for runing one itearation of the system. One iteration corresponds to one room and one month, so we executed the following steps 12 times. All the results of our excecutions, called heater routine files, are placed under `HeaterRoutineFiles` folder. In the following example we consider the iteration for the small room in January.
 
-1. Run the Data Processing script for a room 
+1. Run the Data Processing script under `SecondUseCase_Temperature/DataAnalysis` for a room 
 
-`$ cd DataAnalysis`
-`$ python3 temperature_processing.py smallroom`
+`python3 temperature_processing.py smallroom`
 
-2. In another terminal, run the script that genreates temperature measurements
+2. In another terminal, run the script that genreates temperature measurements, located under `SecondUseCase_Temperature/RealTimeDataGen`
 
-`$ cd RealTimeDataGen`
-`$ python3 temperature_realtime_gen.py 1 smallroom`
+`python3 temperature_realtime_gen.py 1 smallroom`
 
-3. Wait until the second terminates and then manually terminates the first.
-At the end, you will have a smallroomJAN.csv in the RealTimeDataGen directory.
+3. Wait until the second terminates and then manually terminate the first.
+At the end, you will have a smallroomJAN.csv in the RealTimeDataGen directory. THis is what we call a heater_routine file.
 
-4. Predict which temperature the system reached at 18 o'clock at every day of January. To do so, run:
+4. Predict which temperature the system reached at 18 o'clock at every day of January. To do so, go to SecondUseCase_Temperature/DataAnalysis and run:
 
-`$ cd DataAnalysis`
-
-`$ python3 results_processing.py r ../RealTimeDataGen/smallroomJAN.csv`
+`python3 results_processing.py r ../RealTimeDataGen/smallroomJAN.csv`
 
 ## 3. Generate Files for the comparisson system
 
