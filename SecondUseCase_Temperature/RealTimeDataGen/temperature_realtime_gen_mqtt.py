@@ -37,7 +37,7 @@ def get_month_input():
         return None
     return sys.argv[1]
     
-def get_stream_name_input():
+def get_room_name_input():
     if len(sys.argv) < 3:
         print("stream name missinig")
         return None
@@ -209,9 +209,9 @@ def main():
     month_dataframe = get_month_dataframe(df, month_number)
     days_on_month = get_number_days_month(month_dataframe)
     
-    stream_name = get_stream_name_input()
+    room_name = get_room_name_input()
     months = ['JAN', 'FEV', 'MAR', 'APR']
-    filename = 'HeaterRoutineFiles' stream_name + months[int(month_number) - 1] + '.csv'
+    filename = 'HeaterRoutineFiles/' + room_name + months[int(month_number) - 1] + '.csv'
 
     try:
         os.remove(filename)
