@@ -20,36 +20,32 @@ This is package includes all Apache Kafka components necessary to run applicatio
 
 ### 1st terminal - Gazebo visualization
 
-1. Create a `build` folder under `plugins` and navigate to it
-
-`$ cd plugins && mkdir build`
-
-`$ cd plugins/build/`
+1. Create a `build` folder under `FirstUseCase_Energy/Gazebo/plugins` and navigate to it
 
 2. Compile the plugins 
 
-`$ cmake ../`
-`$ make`
+`cmake ../`
+`make`
 
 3. Set GAZEBO_PLUGIN_PATH environment variable to the current directory (`build`)
 
-`$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$(pwd)`
+`export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$(pwd)`
 
-4. Go back to `Energy` directory  and elect contents of folder `models` and move to `home/model_editor_models` 
+4. Go back to `FirstUseCase_Energy/Gazebo` directory and elect contents of folder `models` and move to `home/model_editor_models` 
 
-5. Select contents of folder `building` and move to `home/building_editor_models` (both model_ and building_ editor_models were created by Gazebo installation)
+5. Select contents of folder `buildings` and move to `home/building_editor_models` (both model_ and building_ editor_models were created by Gazebo installation)
 
-6. Run the application
+6. Go to `Gazebo/worlds` folder and run the application
 
-`$ gazebo newWorld`
+`gazebo newWorld`
 
 ### 2nd terminal - Real time generation
 
-1. Go to the `RealTimeGen` folder and download, in this directory, the data set (HomeC.csv) file containing the power readings from https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
+1. Go to the `FirstUseCase_Energy/RealTimeDataGen` folder and download, in this directory, the data set (HomeC.csv) file containing the power readings from https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
 
 2. Run the script
 
-`$ python3 csv_reader.py`
+`python3 csv_proc.py`
 
 ### 3rd terminal - Data Processing
 
@@ -69,7 +65,7 @@ Obs.: You may need to set the Java 8 it you have more than one version installed
 
 Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
-2. Go back to this repository's `connectors` folder under `Kafka` and post the Kafka Connectors 
+2. Navigate back to this repository's `Kafka/Connectors` folder and post the Kafka Connectors 
 
 `curl -s -X POST -H 'Content-Type: application/json' --data @connectorSink.json http://localhost:8083/connectors`
 
@@ -80,3 +76,5 @@ Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 3. Go back to `Kafka` folder and run the processing script
 
 `python3 kafkaprocessing.py`
+
+Back in Gazebo, you should see the color of the elements changing :)
