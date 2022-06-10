@@ -105,9 +105,9 @@ After that, you will have a four new files under `ConstantTimeUpdated`, one repr
 
 For comparing the system, we chose two criterias: the time heater's daily operation time (from the moment it was turned on until 18 o'clock) and the final temperature the system reached at 18 o'clock. For generating a graphes that compare the monthly average per room we go to the `DataAnalysis` folder and:
 
-`$ python3 graph_mixer.py time`
+`python3 graph_mixer.py time`
 
-`$ python3 graph_mixer.py temperature`
+`python3 graph_mixer.py temperature`
 
-
+We stored the generated under `DataAnalysis/Graphs`
 
