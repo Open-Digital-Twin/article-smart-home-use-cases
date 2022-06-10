@@ -24,12 +24,12 @@ This is package includes all Apache Kafka components necessary to run applicatio
 
 2. Compile the plugins 
 
-`$ cmake ../`
-`$ make`
+`cmake ../`
+`make`
 
 3. Set GAZEBO_PLUGIN_PATH environment variable to the current directory (`build`)
 
-`$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$(pwd)`
+`export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$(pwd)`
 
 4. Go back to `FirstUseCase_Energy/Gazebo` directory and elect contents of folder `models` and move to `home/model_editor_models` 
 
@@ -37,7 +37,7 @@ This is package includes all Apache Kafka components necessary to run applicatio
 
 6. Go to `Gazebo/worlds` folder and run the application
 
-`worlds$ gazebo newWorld`
+`gazebo newWorld`
 
 ### 2nd terminal - Real time generation
 
@@ -45,7 +45,7 @@ This is package includes all Apache Kafka components necessary to run applicatio
 
 2. Run the script
 
-`$ python3 csv_proc.py`
+`python3 csv_proc.py`
 
 ### 3rd terminal - Data Processing
 
@@ -67,11 +67,11 @@ Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
 2. Navigate back to this repository's `Kafka/Connectors` folder and post the Kafka Connectors 
 
-`Connectors$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSink.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSink.json http://localhost:8083/connectors`
 
-`Connectors$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSource.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSource.json http://localhost:8083/connectors`
 
-`Connectors$ curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceUser.json http://localhost:8083/connectors`
+`curl -s -X POST -H 'Content-Type: application/json' --data @connectorSourceUser.json http://localhost:8083/connectors`
 
 3. Go back to `Kafka` folder and run the processing script
 
