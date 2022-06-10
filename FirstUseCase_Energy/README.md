@@ -25,6 +25,7 @@ This is package includes all Apache Kafka components necessary to run applicatio
 2. Compile the plugins 
 
 `cmake ../`
+
 `make`
 
 3. Set GAZEBO_PLUGIN_PATH environment variable to the current directory (`build`)
@@ -77,4 +78,4 @@ Mac: `export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)`
 
 `python3 kafkaprocessing.py`
 
-Back in Gazebo, you should see the color of the elements changing :)
+Back in Gazebo, you should see the color of the elements changing  🤞😃
